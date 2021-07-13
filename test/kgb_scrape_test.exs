@@ -53,7 +53,7 @@ defmodule KgbScrapeTest do
     for {d,r} <- review, do: %{date: d, count_special_count_total: compute_score.(r)}
   end
 
-  test "assure that function handle_response() prints :ok response and reason: nxdomain" do
+  test "assure that function handle_response() prints :ok response and reason" do
     erroneous_url = "https://www.dalerrater.com/dealer/McKaig-Chevrolet-Buick-A-Dealer-For-The-People-dealer-reviews-23685/page1/?filter=#link"
     case HTTPoison.get(erroneous_url) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
